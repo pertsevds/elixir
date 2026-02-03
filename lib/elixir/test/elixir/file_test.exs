@@ -826,6 +826,7 @@ defmodule FileTest do
       File.mkdir_p!(src)
       File.write!(regular_file, "content")
 
+      :ok = socket_path
       {:ok, socket} = :gen_tcp.listen(0, [:local, {:ifaddr, {:local, socket_path}}])
 
       try do
